@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2022-2023 Indoc Systems
+
+Contact Indoc Systems for any questions regarding the use of this source code.
+-->
+<html>
+    <body>
+      <p>Dear {{ admin_first_name }},</p>
+      <p>A {{ product_name }} project member has made a request to copy {{ product_name }} Project data from the Green Room to the Core.</p>
+      <p><b>Project:</b> {{ project_name }}</p>
+      <p><b>Requested on:</b> {{ request_timestamp }}</p>
+      <p><b>Requested by:</b> {{ user_first_name }} {{ user_last_name }}</p>
+      <p>To review the details of this request within your Project, please sign into the {{ product_name }} and navigate to the Requests page.</p>
+      <p>This is an automated notification.  Please do not reply.</p>
+    </body>
+</html>

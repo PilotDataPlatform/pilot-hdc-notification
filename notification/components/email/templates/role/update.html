@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2022-2023 Indoc Systems
+
+Contact Indoc Systems for any questions regarding the use of this source code.
+-->
+<html>
+  <body>
+
+    <p>{{ admin_name }} has modified your access in the following project:</p><br>
+     <p><li>Project Name: <b>{{ project_name }}</b></li></p>
+      <p><li>New Role: <b>{{ project_role }}</b></li></p><br>
+
+      <p>In order to access the project please visit the link below and login using your credentials: </p>
+      <a href="{{ login_url }}">{{ login_url }}</a><br>
+       <p>If you are having difficulty accessing the link please copy and paste the following into your browser:</p>
+       <p>{{ login_url }}</p><br>
+
+
+       <p>If you have questions, please contact us at <a href="https://ebrains.eu/support/" target="_blank">https://ebrains.eu/support/</a>.</p><br>
+
+        <p>Warm Regards,</p>
+        <p>The HealthDataCloud Support Team</p>
+   </body>
+</html>

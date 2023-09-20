@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  notification:
+    build:
+      target: notification-image
+    ports:
+      - "127.0.0.1:5065:5065"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=5065
+      - RDS_HOST=${RDS_HOST:-postgres}
+      - RDS_PORT=${RDS_PORT:-5432}
+      - RELOAD=${RELOAD:-true}
+    volumes:
+      - .:/app
+    depends_on:
+      - mailhog
+      - postgres
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+
+  postgres:
+    image: postgres:14.5-alpine
+    ports:
+      - "127.0.0.1:5400:5432"
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB:-notification}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-passwordRoJi}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready --username $$POSTGRES_USER" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  alembic:
+    build:
+      target: alembic-image
+    environment:
+      - RDS_HOST=${RDS_HOST:-postgres}
+      - RDS_PORT=${RDS_PORT:-5432}
+    volumes:
+      - ./migrations/:/app/migrations/
+      - ./notification/:/app/notification/
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres-data:
