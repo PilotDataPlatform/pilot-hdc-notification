@@ -18,7 +18,7 @@ PyJWT = "1.4.2"
 python-dotenv = "0.19.1"
 python-json-logger = "2.0.2"
 python-multipart = "0.0.5"
-requests = "2.24.0"
+requests = "2.31.0"
 uvicorn = { extras = ["standard"], version = "0.17.6" }
 itsdangerous = "1.1.0"
 markupsafe = "1.1.1"
