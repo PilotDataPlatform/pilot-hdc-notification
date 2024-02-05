@@ -7,7 +7,7 @@ authors = ["Indoc Systems"]
 [tool.poetry.dependencies]
 python = "^3.10"
 pilot-platform-common = "^0.1.0"
-fastapi = "0.85.0"
+fastapi = "0.109.1"
 Jinja2 = "2.11.2"
 opentelemetry-exporter-jaeger = "1.6.2"
 opentelemetry-instrumentation = "0.26b1"
