@@ -1,11 +1,11 @@
-# Copyright (C) 2022-2023 Indoc Systems
-
-# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html. 
+# Copyright (C) 2022-Present Indoc Systems
+#
+# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE,
+# Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
 # You may not use this file except in compliance with the License.
 
 import smtplib
 
-from common import LoggerFactory
 from fastapi import APIRouter
 from fastapi import BackgroundTasks
 from fastapi import Depends
@@ -17,14 +17,7 @@ from notification.components.email.schemas import APIResponse
 from notification.components.email.schemas import EAPIResponseCode
 from notification.components.email.schemas import SendEmailSchema
 from notification.config import ConfigClass
-
-_logger = LoggerFactory(
-    __name__,
-    level_default=ConfigClass.LOG_LEVEL_DEFAULT,
-    level_file=ConfigClass.LOG_LEVEL_FILE,
-    level_stdout=ConfigClass.LOG_LEVEL_STDOUT,
-    level_stderr=ConfigClass.LOG_LEVEL_STDERR,
-).get_logger()
+from notification.logger import logger
 
 router = APIRouter(prefix='/email', tags=['Email'])
 
@@ -44,7 +37,7 @@ async def send_emails(
         client = smtplib.SMTP(ConfigClass.POSTFIX_URL, ConfigClass.POSTFIX_PORT)
         if ConfigClass.SMTP_USER and ConfigClass.SMTP_PASS:
             client.login(ConfigClass.SMTP_USER, ConfigClass.SMTP_PASS)
-        _logger.info('email server connection established')
+        logger.info('email server connection established')
     except smtplib.socket.gaierror as e:
         api_response.result = str(e)
         api_response.code = EAPIResponseCode.internal_error
@@ -54,6 +47,6 @@ async def send_emails(
     background_tasks.add_task(
         email_client.send_emails, data.receiver, data.sender, data.subject, text, data.msg_type, data.attachments
     )
-    _logger.info(f'Email sent successfully to {data.receiver}')
+    logger.info(f'Email sent successfully to {data.receiver}')
     api_response.result = 'Email sent successfully. '
     return api_response.json_response()

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2022-2023 Indoc Systems
+
+Contact Indoc Systems for any questions regarding the use of this source code.
+-->
+<html>
+    <body>
+      <h4>Hello {{ user_email }},</h4>
+      <p><b>{{ inviter_name }}({{ inviter_email }}) has invited you to join {{ product_name }} Portal as a member of their project. </b></p>
+      <p>The {{ product_name }} platform is designed to make it easier for you to find and securely access data and use it in innovative ways. You can learn more about {{ product_name }} <a href="{{ about_url }}">here</a>, or access the user guide.  Instructions for setting up and accessing your account are listed below.  </p>
+      <p>Platform Role: {{ platform_role }}</p>
+      <br>
+      <p><b><u>Next Steps:</u></b></p>
+      <p>As part of {{ product_name }}’s integration with the {{ company_name }} Health Data Platform, external {{ product_name }} users who are not employees of the {{ company_name }} and have not previously been granted access to a {{ company_name }} system (e.g., email or VPN) are required to submit a request for an account to the {{ company_name }} {{ department_name }}, before they can be granted access to {{ product_name }} and its integrated workbench tools.  </p>
+      <p>To submit your request, please complete the steps below:</p>
+      <ol>
+        <li>
+          Complete the <i>{{ company_name }} Active Directory Access Request Form</i> attached to this email.
+          <ul>
+            <li>Complete all fields and ensure the email address entered into the form matches the email address that this email was sent to: {{ user_email }}</li>
+            <li>Sign and date the form</li>
+          </ul>
+        </li>
+        <li>Send the completed and signed form to {{ product_name }} administrator at {{ admin_email }} for processing and approval.</li>
+      </ol>
+      <p>Once approval is received for your {{ company_name }} Active Directory account, you will receive a confirmation email from the {{ company_name }} {{ department_name }} with your account details, which you can then use to log into {{ product_name }} Portal at <a href="{{ url }}">{{ url }}</a>.
+      <p>If you have questions about how to fill out the form, please contact your {{ company_name }} partner for assistance, or send an email to {{ support_email }}.</p>
+      <p>Warm Regards,</p>
+      <p>- The {{ product_name }} Support Team</p>
+    </body>
+</html>

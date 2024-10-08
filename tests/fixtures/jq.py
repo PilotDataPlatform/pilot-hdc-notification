@@ -1,6 +1,7 @@
-# Copyright (C) 2022-2023 Indoc Systems
-
-# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html. 
+# Copyright (C) 2022-Present Indoc Systems
+#
+# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE,
+# Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
 # You may not use this file except in compliance with the License.
 
 from typing import Any
@@ -13,14 +14,11 @@ from httpx import Response
 class JQResult:
     """Typing for jq processor response."""
 
-    def all(self) -> list[Any]:
-        ...
+    def all(self) -> list[Any]: ...
 
-    def first(self) -> Any:
-        ...
+    def first(self) -> Any: ...
 
-    def text(self) -> str:
-        ...
+    def text(self) -> str: ...
 
 
 class JQ:

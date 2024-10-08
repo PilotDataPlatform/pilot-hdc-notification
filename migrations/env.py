@@ -1,13 +1,14 @@
-# Copyright (C) 2022-2023 Indoc Systems
-
-# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html. 
+# Copyright (C) 2022-Present Indoc Systems
+#
+# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE,
+# Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
 # You may not use this file except in compliance with the License.
 
+import logging
 from logging.config import fileConfig
 from urllib.parse import urlparse
 
 from alembic import context
-from common import LoggerFactory
 from sqlalchemy import create_engine
 from sqlalchemy.pool import NullPool
 
@@ -17,14 +18,8 @@ from notification.config import get_settings
 config = context.config
 fileConfig(config.config_file_name)
 settings = get_settings()
+logger = logging.getLogger('alembic')
 
-logger = LoggerFactory(
-    'alembic',
-    level_default=settings.LOG_LEVEL_DEFAULT,
-    level_file=settings.LOG_LEVEL_FILE,
-    level_stdout=settings.LOG_LEVEL_STDOUT,
-    level_stderr=settings.LOG_LEVEL_STDERR,
-).get_logger()
 target_metadata = DBModel.metadata
 database_uri = config.get_main_option('database_uri', settings.RDS_DB_URI)
 

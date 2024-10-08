@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2022-2023 Indoc Systems
+
+Contact Indoc Systems for any questions regarding the use of this source code.
+-->
+<html>
+    <body>
+      <p>Dear {{ first_name }},</p>
+      <p>We received a request for a test account in {{ product_name }}, this request has been approved automatically and you have been granted access to the following test project:</p>
+      <p><b>Project Name:</b> {{ project_name }}</p>
+      <p><b>Project Code:</b> {{ project_code }}</p>
+      <p><b>Your User Role:</b>{{ project_role }}</p>
+      <p>In order to access the project, please visit the link below and login with your {{ company_name }} credentials:</p>
+      <a href="{{ url }}">Login Link</a><br>
+      <p>If you are having difficulty accessing the link please copy and paste the following into your browser: {{ url }}</p>
+      <p><b>Please note, this account is for testing purposes only and should not be used for uploading, storing, sharing, or processing of any human participant research data, or any other sensitive data. Any data uploaded to this project may be periodically purged without warning.</b></p>
+      <p>Have questions? Check out our <a href="{{ url_guide }}">{{ product_name }} User Guide</a> on the wiki. Should you require assistance or if you would like to apply for a project on the {{ product_name }} please contact: {{ support_email }}.</p>
+      <p>This is an automated message. If you did not submit a request for a test account on the {{ product_name }}, you may disregard this message.</p>
+    </body>
+</html>

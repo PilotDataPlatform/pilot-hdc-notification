@@ -1,25 +1,17 @@
-# Copyright (C) 2022-2023 Indoc Systems
-
-# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html. 
+# Copyright (C) 2022-Present Indoc Systems
+#
+# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE,
+# Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
 # You may not use this file except in compliance with the License.
 
-from common import LoggerFactory
 from fastapi import APIRouter
 from fastapi import Depends
 from fastapi.responses import Response
 
 from notification.components.health.db_checker import DBChecker
 from notification.components.health.dependencies import get_db_checker
-from notification.config import get_settings
+from notification.logger import logger
 
-settings = get_settings()
-logger = LoggerFactory(
-    __name__,
-    level_default=settings.LOG_LEVEL_DEFAULT,
-    level_file=settings.LOG_LEVEL_FILE,
-    level_stdout=settings.LOG_LEVEL_STDOUT,
-    level_stderr=settings.LOG_LEVEL_STDERR,
-).get_logger()
 router = APIRouter(prefix='/health', tags=['Health'])
 
 

@@ -1,6 +1,7 @@
-# Copyright (C) 2022-2023 Indoc Systems
-
-# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html. 
+# Copyright (C) 2022-Present Indoc Systems
+#
+# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE,
+# Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
 # You may not use this file except in compliance with the License.
 
 import logging
@@ -45,7 +46,9 @@ class Settings(BaseSettings):
     PORT: int = 5065
     WORKERS: int = 1
     RELOAD: bool = False
+
     LOGGING_LEVEL: int = logging.INFO
+    LOGGING_FORMAT: str = 'json'
 
     POSTFIX: str = ''
     SMTP_USER: str = 'user'
@@ -66,11 +69,6 @@ class Settings(BaseSettings):
     OPEN_TELEMETRY_ENABLED: bool = False
     OPEN_TELEMETRY_HOST: str = '127.0.0.1'
     OPEN_TELEMETRY_PORT: int = 6831
-
-    LOG_LEVEL_DEFAULT = logging.WARN
-    LOG_LEVEL_FILE = logging.WARN
-    LOG_LEVEL_STDOUT = logging.WARN
-    LOG_LEVEL_STDERR = logging.ERROR
 
     def __init__(self, *args: Any, **kwds: Any) -> None:
         super().__init__(*args, **kwds)

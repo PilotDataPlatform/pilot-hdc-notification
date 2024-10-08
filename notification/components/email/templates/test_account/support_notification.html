@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2022-2023 Indoc Systems
+
+Contact Indoc Systems for any questions regarding the use of this source code.
+-->
+<html>
+  <body>
+    <table>
+      {% if title %}
+      <tr>
+        <td><b>Title:&nbsp;</b></td>
+        <td>{{ title }}</td>
+      </tr>
+      {% endif %}
+      {% if first_name or last_name %}
+      <tr>
+        <td><b>Name:&nbsp;</b></td>
+        <td>{{ first_name }} {{ last_name }}</td>
+      </tr>
+      {% endif %}
+      {% if institution %}
+      <tr>
+        <td><b>Institution:&nbsp;</b></td>
+        <td>{{ institution }}</td>
+      </tr>
+      {% endif %}
+      {% if username %}
+      <tr>
+        <td><b>Username:&nbsp;</b></td>
+        <td>{{ username }}</td>
+      </tr>
+      {% endif %}
+      {% if email %}
+      <tr>
+        <td><b>Email Address:&nbsp;</b></td>
+        <td>{{ email }}</td>
+        <tr>
+      </tr>
+      {% endif %}
+      {% if send_date %}
+      <tr>
+        <td><b>Date/Time:&nbsp;</b></td>
+        <td>{{ send_date }}</td>
+      </tr>
+      {% endif %}
+      {% if project_name %}
+      <tr>
+        <td><b>Project:&nbsp;</b></td>
+        <td>{{ project_name }}</td>
+      </tr>
+      {% endif %}
+      {% if status %}
+      <tr>
+        <td><b>Status:&nbsp;</b></td>
+        <td>{{ status }}</td>
+      </tr>
+      {% endif %}
+      {% if notes %}
+      <tr>
+        <td valign="top" style="vertical-align: top;"><b>Notes:&nbsp;</b></td>
+        <td>{{ notes }}</td>
+      </tr>
+      {% endif %}
+      {% if agreement_info %}
+      <tr>
+        <td valign="top" style="vertical-align: top;"><b>Data Processing Agreement Info:&nbsp;</b></td>
+        <td>{{ agreement_info }}</td>
+      </tr>
+      {% endif %}
+      {% if why_interested %}
+        <tr>
+          <td valign="top" style="vertical-align: top;"><b>Notes:&nbsp;</b></td>
+          <td>
+            <p>The requester has provided details regarding a contract or Data Processing Agreement that require review, please see details below:</p>
+            <p><b>Why are you interested in using {{ product_name }}?</b></p>
+            <p>{{ why_interested }}</p>
+          </td>
+        </tr>
+      {% endif %}
+    </table>
+    <p>This is an automated notification, please do not reply.  To view and edit user accounts on {{ product_name }}, please navigate to the <a href="{{ url }}/users">{{ product_name }} User Management</p>
+  </body>
+</html>
