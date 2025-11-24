@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "notification"
-version = "2.2.7"
+version = "2.2.10"
 description = "Service for managing emails, user notifications and platform announcements."
 authors = ["Indoc Systems"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<3.11"
 pilot-platform-common = "0.3.0"
 fastapi = "0.85.0"
 Jinja2 = "2.11.2"

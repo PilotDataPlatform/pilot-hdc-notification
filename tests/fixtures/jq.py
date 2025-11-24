@@ -14,11 +14,14 @@ from httpx import Response
 class JQResult:
     """Typing for jq processor response."""
 
-    def all(self) -> list[Any]: ...
+    def all(self) -> list[Any]:
+        pass
 
-    def first(self) -> Any: ...
+    def first(self) -> Any:
+        pass
 
-    def text(self) -> str: ...
+    def text(self) -> str:
+        pass
 
 
 class JQ:
@@ -33,4 +36,4 @@ class JQ:
 
 @pytest.fixture
 def jq() -> type[JQ]:
-    yield JQ
+    return JQ
