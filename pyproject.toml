@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "notification"
-version = "2.2.10"
+version = "2.2.11"
 description = "Service for managing emails, user notifications and platform announcements."
 authors = ["Indoc Systems"]
 
