@@ -33,6 +33,7 @@ class EmailClient:
         try:
             client = smtplib.SMTP(self.host, self.port)
             if self.username and self.password:
+                client.starttls()
                 client.login(self.username, self.password)
             logger.info('email server connection established')
         except smtplib.socket.gaierror as e:
