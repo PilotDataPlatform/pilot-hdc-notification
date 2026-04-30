@@ -32,10 +32,11 @@ class EmailClient:
     def send_emails(self, receivers, sender, subject, text, msg_type, attachments):
         try:
             client = smtplib.SMTP(self.host, self.port)
+            client.starttls()
             if self.username and self.password:
                 client.login(self.username, self.password)
             logger.info('email server connection established')
-        except smtplib.socket.gaierror as e:
+        except (smtplib.socket.gaierror, smtplib.SMTPException) as e:
             logger.exception(f'Error connecting with Mail host, {e}')
             api_response = APIResponse()
             api_response.result = str(e)
