@@ -35,10 +35,12 @@ async def send_emails(
 
     try:
         client = smtplib.SMTP(ConfigClass.POSTFIX_URL, ConfigClass.POSTFIX_PORT)
+        client.starttls()
         if ConfigClass.SMTP_USER and ConfigClass.SMTP_PASS:
             client.login(ConfigClass.SMTP_USER, ConfigClass.SMTP_PASS)
         logger.info('email server connection established')
-    except smtplib.socket.gaierror as e:
+    except (smtplib.socket.gaierror, smtplib.SMTPException) as e:
+        logger.exception('Error connecting with Mail host')
         api_response.result = str(e)
         api_response.code = EAPIResponseCode.internal_error
         return api_response.json_response()
